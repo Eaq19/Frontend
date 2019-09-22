@@ -48,7 +48,6 @@ appVector.controller('clienteController', ["$scope", "ClienteService", "GrupoSer
         ClienteService.create($scope.cliente).then(function () {
           ClienteService.list().then(function (value) {
             $scope.allCustomers = value.data;
-            console.log($scope.allCustomers);
           }, function (reason) {
             console.log("error occured");
           }, function (value) {
@@ -69,8 +68,9 @@ appVector.controller('clienteController', ["$scope", "ClienteService", "GrupoSer
       }
     }
     $scope.searchCliente = function () {
+      $scope.allCustomers = [];
       console.log("Buscador:" + $scope.clienteSearch);
-      if ($scope.clienteSearch == "") {
+      if ($scope.clienteSearch == null) {
         ClienteService.list().then(function (value) {
           $scope.allCustomers = value.data;
         }, function (reason) {

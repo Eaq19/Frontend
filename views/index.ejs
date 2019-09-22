@@ -10,8 +10,8 @@
   <title>Vector</title>
 </head>
 
-<body ng-controller="clienteController">
-  <div class="container">
+<body>
+  <div class="container" ng-controller="clienteController">
     <div class="row">
       <div class="col-12">
         <ng-include src="'/layout'"></ng-include>
@@ -22,6 +22,15 @@
         <ng-include src="'/customers'"></ng-include>
       </div>
     </div>
+    </br>
+    <div class="row">
+      <label for="nombre" class="col-sm-1 control-label"><strong>Búsqueda:</strong></label>
+      <div class="col-6 col-md-6 center">
+        <input class="form-control" type="text" id="clienteSearch" placeholder="Filtrar clientes..." aria-label="Search"
+          ng-model="clienteSearch" ng-keyup="searchCliente()">
+      </div>
+    </div>
+    </br>
     <div class="row">
       <div class="col-6 col-md-6 center">
         <ng-include src="'/listClientes'"></ng-include>
@@ -36,6 +45,8 @@
     <!-- Loading libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/vendor/angular.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/js/vendor/angular-route.min.js"></script> -->
     <script src="/js/vendor/ui-bootstrap-tpls-2.1.4.min.js"></script>
     <script type="text/javascript" src="/js/vendor/satellizer.min.js"></script>
     <script type="text/javascript" src="/js/index.module.js"></script>
