@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="appVector">
 
 <head>
   <meta charset="UTF-8">
@@ -9,33 +9,32 @@
   <title>Vector</title>
 </head>
 
-<body>
+<body ng-controller="contenidoController">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <% include layout %>
+        <ng-include src="'/layout'"></ng-include>
       </div>
     </div>
     <div class="row">
-      <div ng-switch="page">
-        <div ng-switch-when="" class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
-          <% include clienteForm %>
-        </div>
-        <div ng-switch-when="groups" class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
-          <% include grupoForm %>
-        </div>
-        <div ng-switch-default>
-            <% include clienteForm %>
-        </div>
+      <div class="col-6 col-md-6 center">
+        <ng-include src="'/customers'"></ng-include>
       </div>
     </div>
-  </div>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/popper.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/popper.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <!-- Loading libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.min.js"></script>
+    <script src="/js/vendor/ui-bootstrap-tpls-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/satellizer.min.js"></script>
+    <script type="text/javascript" src="/js/index.module.js"></script>
+    <script type="text/javascript" src="/js/controllers/indexController.js"></script>
+    <script type="text/javascript" src="/js/controllers/clienteController.js"></script>
+    <script type="text/javascript" src="/js/services/clienteController.js"></script>
 </body>
 
 </html>

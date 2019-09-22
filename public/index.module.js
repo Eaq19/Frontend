@@ -1,0 +1,1 @@
+var appVector = angular.module('appVector', ['ngRoute']);
