@@ -6,12 +6,13 @@ appVector.controller('clienteController', ["$scope", "ClienteService", "GrupoSer
       nombre: null,
       cif: null,
       direccion: null,
-      grupo: null
+      grupo: ""
     };
     $scope.grupos = {
       id: null,
       nombre: null
     };
+    $scope.allCustomers = [];
     $scope.clienteSearch = null;
     console.log("Consumir servicio");
     GrupoService.list().then(function (value) {
@@ -34,12 +35,42 @@ appVector.controller('clienteController', ["$scope", "ClienteService", "GrupoSer
         nombre: null,
         cif: null,
         direccion: null,
-        grupo: null
+        grupo: ""
       };
     }
     $scope.saveCliente = function () {
-      $scope.cliente.grupo = { id: $scope.cliente.grupo }
-      ClienteService.create($scope.cliente).then(function () {
+      $scope.grupoInvalido = false;
+      if ($scope.cliente.grupo < 1) {
+        $scope.grupoInvalido = true;
+      }
+      if (!$scope.grupoInvalido) {
+        $scope.cliente.grupo = { id: $scope.cliente.grupo }
+        ClienteService.create($scope.cliente).then(function () {
+          ClienteService.list().then(function (value) {
+            $scope.allCustomers = value.data;
+            console.log($scope.allCustomers);
+          }, function (reason) {
+            console.log("error occured");
+          }, function (value) {
+            console.log("no callback");
+          });
+          $scope.cliente = {
+            id: null,
+            nombre: null,
+            cif: null,
+            direccion: null,
+            grupo: ""
+          };
+        }, function (reason) {
+          console.log("error occured");
+        }, function (value) {
+          console.log("no callback");
+        });
+      }
+    }
+    $scope.searchCliente = function () {
+      console.log("Buscador:" + $scope.clienteSearch);
+      if ($scope.clienteSearch == "") {
         ClienteService.list().then(function (value) {
           $scope.allCustomers = value.data;
         }, function (reason) {
@@ -47,28 +78,15 @@ appVector.controller('clienteController', ["$scope", "ClienteService", "GrupoSer
         }, function (value) {
           console.log("no callback");
         });
-        $scope.cliente = {
-          id: null,
-          nombre: null,
-          cif: null,
-          direccion: null,
-          grupo: null
-        };
-      }, function (reason) {
-        console.log("error occured");
-      }, function (value) {
-        console.log("no callback");
-      });
-    }
-    $scope.searchCliente = function () {
-      console.log("Buscador:" + $scope.clienteSearch);
-      ClienteService.getByName($scope.clienteSearch).then(function (value) {
-        $scope.allCustomers = value.data;
-      }, function (reason) {
-        console.log("error occured");
-      }, function (value) {
-        console.log("no callback");
-      });
+      } else {
+        ClienteService.getByName($scope.clienteSearch).then(function (value) {
+          $scope.allCustomers = value.data;
+        }, function (reason) {
+          console.log("error occured");
+        }, function (value) {
+          console.log("no callback");
+        });
+      }
     }
   }
 ]);

@@ -1,17 +1,17 @@
 <h1><strong>Alta cliente</strong></h1>
-<div ng-controller="clienteController as cliente">
-    <form class="form-horizontal" ng-submit="submitClienteForm()" role="form">
+<div>
+    <form class="form-horizontal" role="form">
         <div class="form-group">
             <label for="nombre" class="col-sm-3 control-label">Nombre:</label>
             <div class="col-sm-6">
-                <input type="text" id="nombre" class="form-control" ng-model="cliente.nombre" />
+                <input type="text" id="nombre" class="form-control" ng-model="cliente.nombre" required />
             </div>
             <div class="col-sm-3"></div>
         </div>
         <div class="form-group">
             <label for="cif" class="col-sm-3 control-label">CIF:</label>
             <div class="col-sm-6">
-                <input type="text" id="cif" class="form-control" ng-model="cliente.cif" />
+                <input type="text" id="cif" class="form-control" ng-model="cliente.cif" required />
             </div>
             <div class="col-sm-3"></div>
         </div>
@@ -19,7 +19,7 @@
         <div class="form-group">
             <label for="direccion" class="col-sm-3 control-label">Dirección:</label>
             <div class="col-sm-6">
-                <input type="text" id="direccion" class="form-control" ng-model="cliente.direccion" />
+                <input type="text" id="direccion" class="form-control" ng-model="cliente.direccion" required />
             </div>
             <div class="col-sm-3"></div>
         </div>
@@ -28,8 +28,12 @@
             <label for="grupo" class="col-sm-3 control-label">Grupo:</label>
             <div class="col-sm-6">
                 <select id="grupo" class="form-control" ng-model="cliente.grupo">
+                    <option value="">Seleccione una opción</option>
                     <option ng-repeat="g in grupos" value="{{g.id}}">{{g.nombre}}</option>
                 </select>
+                <div class="alert alert-primary" role="alert" ng-show="grupoInvalido">
+                    <span>Por favor, seleccione un grupo, si no hay cree uno para continuar</span>
+                </div>
             </div>
         </div>
 
