@@ -2,29 +2,30 @@
 <html ng-app="appVector">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-  <title>Vector</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <title>Vector</title>
 </head>
 
-<body ng-controller="contenidoController">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <ng-include src="'/layout'"></ng-include>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-md-6 center">
-        <ng-include src="'/customers'"></ng-include>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-md-6 center">
-        <ng-include src="'/listClientes'"></ng-include>
-      </div>
+<body ng-controller="grupoController">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ng-include src="'/layout'"></ng-include>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-6 center">
+                <ng-include src="'/groups'"></ng-include>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-6 center">
+                <ng-include src="'/listGrupos'"></ng-include>
+            </div>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -39,9 +40,9 @@
     <script type="text/javascript" src="/js/index.module.js"></script>
     <script type="text/javascript" src="/js/controllers/indexController.js"></script>
     <script type="text/javascript" src="/js/controllers/clienteController.js"></script>
+    <script type="text/javascript" src="/js/controllers/grupoController.js"></script>
     <script type="text/javascript" src="/js/services/clienteService.js"></script>
     <script type="text/javascript" src="/js/services/grupoService.js"></script>
-  </div>
 </body>
 
 </html>

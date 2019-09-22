@@ -4,10 +4,12 @@ var path = require('path');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var customersRouter = require('./routes/customers');
+var listCustomersRouter = require('./routes/listClientes');
 var groupsRouter = require('./routes/groups');
+var listGroupssRouter = require('./routes/listGrupos');
 var layoutRouter = require('./routes/layout');
+var grupoRouter = require('./routes/grupo');
 
 var app = express();
 
@@ -26,11 +28,12 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/public'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/customers', customersRouter);
 app.use('/groups', groupsRouter);
 app.use('/layout', layoutRouter);
-
+app.use('/listClientes', listCustomersRouter);
+app.use('/listGrupos', listGroupssRouter);
+app.use('/grupo', grupoRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
