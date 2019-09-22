@@ -8,9 +8,8 @@ appVector.factory('ClienteService', function($http) {
         getByName: function(name) {
           return $http.get('http://localhost:8034/api/cliente/' + name);
         },
-        //like the media
-        create: function(cliente) {
-          return $http.post('http://localhost:8034/api/cliente', cliente);
+        create: function(customers) {
+          return $http.post('http://localhost:8034/api/cliente', customers);
         }
       }
-}]);
+});
