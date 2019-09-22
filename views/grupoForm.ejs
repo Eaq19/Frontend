@@ -1,0 +1,15 @@
+<h1><strong>Grupo</strong></h1>
+<div ng-controller="grupoController as settings">
+    <form class="form-horizontal" ng-submit="submitGrupoForm()" role="form">
+        <div class="form-group">
+            <label for="nombre" class="col-sm-3 control-label">Nombre:</label>
+            <div class="col-sm-6">
+                <input type="text" id="nombre" class="form-control" ng-model="grupo.nombre" />
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-primary col-sm-offset-3" />
+        <input type="reset" value="Reset" ng-click="resetForm()" class="btn" /> <br />
+    </form>
+</div>

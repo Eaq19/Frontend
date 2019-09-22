@@ -1,0 +1,41 @@
+<h1><strong>Alta cliente</strong></h1>
+<div ng-controller="clienteController as settings">
+    <form class="form-horizontal" ng-submit="submitClienteForm()" role="form">
+        <div class="form-group">
+            <label for="nombre" class="col-sm-3 control-label">Nombre:</label>
+            <div class="col-sm-6">
+                <input type="text" id="nombre" class="form-control" ng-model="cliente.nombre" />
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="col-sm-3 control-label">CIF:</label>
+            <div class="col-sm-6">
+                <input type="text" id="lastName" class="form-control" ng-model="cliente.lastName" />
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="direccion" class="col-sm-3 control-label">Dirección:</label>
+            <div class="col-sm-6">
+                <input type="text" id="direccion" class="form-control" ng-model="cliente.direccion" />
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="grupo" class="col-sm-3 control-label">Grupo:</label>
+            <div class="col-sm-2">
+                <select id="grupo" class="form-control" ng-model="cliente.grupo">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="col-sm-7"></div>
+        </div>
+
+        <input type="submit" value="Guardar" class="btn btn-primary col-sm-offset-3" />
+        <input type="reset" value="Limpiar" ng-click="resetForm()" class="btn" /> <br />
+    </form>
+</div>
