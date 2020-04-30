@@ -14,7 +14,7 @@
     "express": "~4.16.1",
     "express-handlebars": "latest",
     "http-errors": "~1.6.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "latest",
     "morgan": "~1.9.1",
     "nib": "latest",
